@@ -1,0 +1,6 @@
+BLANK=1
+ENDER=2
+VAR=3
+IDENTIFIER=4
+';'=2
+'var'=3
