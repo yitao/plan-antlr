@@ -1,0 +1,1 @@
+select distinct a.`_key` as key, a.name, age, a.group_name, a.capital from a;

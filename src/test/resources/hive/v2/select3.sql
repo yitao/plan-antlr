@@ -1,0 +1,1 @@
+select distinct `_key`, name, group_name, capital from A;
