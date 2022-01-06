@@ -1,0 +1,1 @@
+select name-age as a from A;

@@ -1,0 +1,1 @@
+update a set a.name = "sam";
