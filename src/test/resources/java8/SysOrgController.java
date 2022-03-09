@@ -1,3 +1,6 @@
+/**
+ * readme
+ */
 package com.haizhi.graphary.server.controller.sys;
 
 import javax.validation.Valid;
@@ -25,6 +28,7 @@ import com.haizhi.graphary.sys.service.GrapharySysOrgService;
 @RequestMapping("/sys/org")
 public class SysOrgController {
 
+    //这是一个单行注释
     @Autowired
     private GrapharySysOrgService sysOrgService;
 
