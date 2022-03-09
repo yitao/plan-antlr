@@ -1114,13 +1114,10 @@ ELLIPSIS : '...';
 // Whitespace and comments
 //
 
-WS  :  [ \t\r\n\u000C]+ -> skip
-    ;
+WS  :  [ \t\r\n\u000C]+;
 
 COMMENT
-    :   '/*' .*? '*/' -> skip
-    ;
+    :   '/*' .*? '*/';
 
 LINE_COMMENT
-    :   '//' ~[\r\n]* -> skip
-    ;
+    :   '//' ~[\r\n]*;
