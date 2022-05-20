@@ -109,7 +109,8 @@ public class Java8GrammarExample {
 
 
         ParserListener extractor = new ParserListener();
-        ParseTreeWalker.DEFAULT.walk(extractor, tree); // initiate walk of tree with listener in use of default walker
+        ParseTreeWalker.DEFAULT.walk(extractor, tree);
+        // initiate walk of tree with listener in use of default walker
 
         System.out.println("getNumberOfSyntaxErrors=" + parser.getNumberOfSyntaxErrors());
     }

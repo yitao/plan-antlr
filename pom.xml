@@ -13,8 +13,27 @@
         <commons.io.version>2.4</commons.io.version>
         <lombok.version>1.16.18</lombok.version>
         <junit.version>4.12</junit.version>
+        <javaparser.version>3.24.0</javaparser.version>
     </properties>
     <dependencies>
+
+        <dependency>
+            <groupId>com.github.javaparser</groupId>
+            <artifactId>javaparser-symbol-solver-core</artifactId>
+            <version>${javaparser.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.javaparser</groupId>
+            <artifactId>javaparser-core</artifactId>
+            <version>${javaparser.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.javaparser</groupId>
+            <artifactId>javaparser-core-serialization</artifactId>
+            <version>${javaparser.version}</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.antlr/antlr4 -->
         <dependency>
             <groupId>org.antlr</groupId>
