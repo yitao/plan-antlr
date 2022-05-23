@@ -25,7 +25,10 @@ THE SOFTWARE.
 
 parser grammar MySqlParser;
 
-options { tokenVocab=MySqlLexer; }
+options {
+    tokenVocab=MySqlLexer;
+    caseInsensitive=true;
+}
 
 
 // Top Level Description

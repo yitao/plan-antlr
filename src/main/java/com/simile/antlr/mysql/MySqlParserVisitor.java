@@ -1,4 +1,4 @@
-// Generated from /Users/haizhi/Documents/workspace/work/plan-antlr/src/main/resources/antlr/mysql/MySqlParser.g4 by ANTLR 4.9.1
+// Generated from /Users/haizhi/Documents/workspace/work/plan-antlr/src/main/resources/antlr/mysql/MySqlParser.g4 by ANTLR 4.10.1
 package com.simile.antlr.mysql;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 

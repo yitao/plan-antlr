@@ -64,5 +64,10 @@ public class MysqlExample1 {
         public MysqlListener(MySqlParser parser) {
             this.parser = parser;
         }
+
+        @Override
+        public void enterColumnCreateTable(MySqlParser.ColumnCreateTableContext ctx) {
+            super.enterColumnCreateTable(ctx);
+        }
     }
 }
