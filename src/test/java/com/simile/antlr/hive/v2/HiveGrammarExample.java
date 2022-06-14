@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
 
-import com.simile.antlr.hive.v2.grammar.HiveLexer;
-import com.simile.antlr.hive.v2.grammar.HiveParser;
+import com.simile.plan.antlr.hive2.HiveLexer;
+import com.simile.plan.antlr.hive2.HiveParser;
 import org.antlr.v4.runtime.ANTLRErrorListener;
 import org.antlr.v4.runtime.ANTLRErrorStrategy;
 import org.antlr.v4.runtime.ANTLRInputStream;

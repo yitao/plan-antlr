@@ -15,7 +15,9 @@ public class MysqlExample1 {
 
     @Test
     public void testCreateTable() {
-        String sql = "CREATE TEMPORARY TABLE `COLUMNS` (\n" +
+        String sql =
+                "/*! 111 */\n" +
+                "CREATE TEMPORARY TABLE `COLUMNS` (\n" +
                 "  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',\n" +
                 "  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',\n" +
                 "  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',\n" +

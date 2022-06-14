@@ -129,20 +129,17 @@ public class Java8GrammarExample {
 
         @Override
         public void enterPackageDeclaration(Java8Parser.PackageDeclarationContext ctx) {
-//            for (int i = 0; i < ctx.getChildCount(); i++) {
-//                System.out.println(ctx.getChild(i).getText());
-//            }
-            System.out.println("pkge:"+ctx.getText());
             super.enterPackageDeclaration(ctx);
         }
 
         @Override
-        public void enterClassDeclaration(Java8Parser.ClassDeclarationContext ctx) {
-//            for (int i = 0; i < ctx.getChildCount(); i++) {
-//                System.out.println(ctx.getChild(i).getText());
-//            }
-//            System.out.println("class:"+ctx.getText());
-            super.enterClassDeclaration(ctx);
+        public void enterImportDeclaration(Java8Parser.ImportDeclarationContext ctx) {
+            super.enterImportDeclaration(ctx);
+        }
+
+        @Override
+        public void enterTypeDeclaration(Java8Parser.TypeDeclarationContext ctx) {
+            super.enterTypeDeclaration(ctx);
         }
 
         @Override
@@ -151,6 +148,20 @@ public class Java8GrammarExample {
             super.enterAnnotation(ctx);
         }
 
+        @Override
+        public void enterCommentDeclaration(Java8Parser.CommentDeclarationContext ctx) {
+            super.enterCommentDeclaration(ctx);
+        }
+
+        @Override
+        public void enterMethodDeclaration(Java8Parser.MethodDeclarationContext ctx) {
+            super.enterMethodDeclaration(ctx);
+        }
+
+        @Override
+        public void enterFieldDeclaration(Java8Parser.FieldDeclarationContext ctx) {
+            super.enterFieldDeclaration(ctx);
+        }
     }
 
 }

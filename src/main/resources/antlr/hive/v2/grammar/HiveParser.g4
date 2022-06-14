@@ -24,6 +24,7 @@ import SelectClauseParser, FromClauseParser, IdentifiersParser;
 options
 {
   tokenVocab=HiveLexer;
+  caseInsensitive=true;
 }
 
 // starting rule

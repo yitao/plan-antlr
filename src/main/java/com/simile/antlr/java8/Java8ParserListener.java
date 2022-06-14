@@ -1,4 +1,4 @@
-// Generated from /Users/haizhi/Documents/workspace/work/plan-antlr/src/main/resources/antlr/java8/Java8Parser.g4 by ANTLR 4.9.1
+// Generated from /Users/haizhi/Documents/workspace/work/plan-antlr/src/main/resources/antlr/java8/Java8Parser.g4 by ANTLR 4.10.1
 package com.simile.antlr.java8;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -2367,4 +2367,14 @@ public interface Java8ParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCastExpression(Java8Parser.CastExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Java8Parser#commentDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterCommentDeclaration(Java8Parser.CommentDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Java8Parser#commentDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitCommentDeclaration(Java8Parser.CommentDeclarationContext ctx);
 }

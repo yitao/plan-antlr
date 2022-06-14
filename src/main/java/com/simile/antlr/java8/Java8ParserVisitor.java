@@ -1,4 +1,4 @@
-// Generated from /Users/haizhi/Documents/workspace/work/plan-antlr/src/main/resources/antlr/java8/Java8Parser.g4 by ANTLR 4.9.1
+// Generated from /Users/haizhi/Documents/workspace/work/plan-antlr/src/main/resources/antlr/java8/Java8Parser.g4 by ANTLR 4.10.1
 package com.simile.antlr.java8;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -1426,4 +1426,10 @@ public interface Java8ParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitCastExpression(Java8Parser.CastExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Java8Parser#commentDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCommentDeclaration(Java8Parser.CommentDeclarationContext ctx);
 }

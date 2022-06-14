@@ -1,30 +1,4 @@
+# Antlr 学习项目
 
-antlr4仓库
-https://github.com/antlr/antlr4
-
-语法仓库：
-https://github.com/antlr/grammars-v4
-
-HIVE SQL语法：（Hive 2.x.x grammar）
-https://github.com/antlr/grammars-v4/tree/master/sql/hive
- 
-
-首先在idea中添加插件，如下图所示
-![](doc/idea_antlr_plugin.png)
-
-编写好g4后，可以右键文件
-选择"Configuration ANTLR"，如下图所示
-![](doc/g4_config_0.png)
-
-在弹出的页面进行配置编辑，如下图所示
-![](doc/g4_config.png)
-
-其中：
-1）g4生成的文件保存目录路径（相对于项目根目录）
-2）生成文件的包名
-3）生成文件的类型
-4）生成监听类，以监听者模式获取解析中的事件
-5）生成访问类，以访问者模式获取解析中的事件
-
-配置好后，我们即可对g4文件进行类文件生成(一般对入口Parser进行生成即可)，如下图所示
-![](doc/g4_generate.png)
+项目包含两个部分，一个是关于语法和 Antlr 相关的理论知识
+另外一个则是使用 Antlr 编写的示例代码

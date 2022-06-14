@@ -25,8 +25,8 @@ public class OracleExample2 extends BaseExample {
 
     @Test
     public void testParseProducer() {
-        String content = loadString("oracle/simple3.sql");
-        content = toUpperCase(content);
+        String content = loadString("oracle/simple2.sql");
+//        content = toUpperCase(content);
 //        System.out.println(content);
         CodePointCharStream input = CharStreams.fromString(content);
         PlSqlLexer lexer = new PlSqlLexer(input);

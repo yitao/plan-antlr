@@ -1,23 +1,16 @@
 /**
- * readme
+ * 包注释
  */
 package com.haizhi.graphary.server.controller.sys;
-
+/*
+引用的注释1
+ */
 import javax.validation.Valid;
 
 import com.graph.atlas.common.base.model.PageResponse;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+//引用的注释2
 import io.swagger.annotations.ApiParam;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.haizhi.graphary.model.qo.sys.SysOrgPageQo;
-import com.haizhi.graphary.model.vo.sys.SysOrgVo;
-import com.haizhi.graphary.sys.service.GrapharySysOrgService;
 
 /**
  * @Author yitao
@@ -28,15 +21,40 @@ import com.haizhi.graphary.sys.service.GrapharySysOrgService;
 @RequestMapping("/sys/org")
 public class SysOrgController {
 
+    /**
+     * 构造方法
+     *
+     * @param sysOrgService
+     */
+    public SysOrgController(GrapharySysOrgService sysOrgService) {
+        this.sysOrgService = sysOrgService;
+    }
+
     //这是一个单行注释
     @Autowired
     private GrapharySysOrgService sysOrgService;
 
+    private GrapharySysOrgService sysOrgService2;
+
+    /**
+     * 这是多行注释
+     *
+     * @param qo
+     * @return
+     */
     @ApiOperation(value = "分页查询组织信息")
     @PostMapping(value = "/findPage")
     public PageResponse<SysOrgVo> findPage(
             @ApiParam(value = "请求参数", required = true) @RequestBody @Valid SysOrgPageQo qo) {
+        //这是方法内注释
         return sysOrgService.findPage(qo);
     }
 
+    @ApiOperation(value = "分页查询组织信息")
+    @PostMapping(value = "/findPage")
+    public PageResponse<SysOrgVo> findPage2(
+            @ApiParam(value = "请求参数", required = true) @RequestBody @Valid SysOrgPageQo qo) {
+        //这是方法内注释
+        return sysOrgService.findPage(qo);
+    }
 }

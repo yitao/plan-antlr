@@ -231,7 +231,7 @@ compilationUnit
 	;
 
 packageDeclaration
-	:	packageModifier* 'package' packageName ';'
+	:	commentDeclaration* packageModifier* 'package' packageName ';'
 	;
 
 packageModifier
@@ -239,10 +239,7 @@ packageModifier
 	;
 
 importDeclaration
-	:	singleTypeImportDeclaration
-	|	typeImportOnDemandDeclaration
-	|	singleStaticImportDeclaration
-	|	staticImportOnDemandDeclaration
+	:	commentDeclaration* (singleTypeImportDeclaration|typeImportOnDemandDeclaration|singleStaticImportDeclaration|staticImportOnDemandDeclaration)
 	;
 
 singleTypeImportDeclaration
@@ -262,9 +259,7 @@ staticImportOnDemandDeclaration
 	;
 
 typeDeclaration
-	:	classDeclaration
-	|	interfaceDeclaration
-	|	';'
+	:	commentDeclaration* (classDeclaration|interfaceDeclaration|';')
 	;
 
 /*
@@ -331,7 +326,7 @@ classMemberDeclaration
 	;
 
 fieldDeclaration
-	:	fieldModifier* unannType variableDeclaratorList ';'
+	:	commentDeclaration* fieldModifier* unannType variableDeclaratorList ';'
 	;
 
 fieldModifier
@@ -423,7 +418,7 @@ unannArrayType
 	;
 
 methodDeclaration
-	:	methodModifier* methodHeader methodBody
+	:	commentDeclaration* methodModifier* methodHeader methodBody
 	;
 
 methodModifier
@@ -509,7 +504,7 @@ staticInitializer
 	;
 
 constructorDeclaration
-	:	constructorModifier* constructorDeclarator throws_? constructorBody
+	:	commentDeclaration* constructorModifier* constructorDeclarator throws_? constructorBody
 	;
 
 constructorModifier
@@ -551,7 +546,7 @@ enumConstantList
 	;
 
 enumConstant
-	:	enumConstantModifier* Identifier ('(' argumentList? ')')? classBody?
+	:	commentDeclaration* enumConstantModifier* Identifier ('(' argumentList? ')')? classBody?
 	;
 
 enumConstantModifier
@@ -613,7 +608,7 @@ constantModifier
 	;
 
 interfaceMethodDeclaration
-	:	interfaceMethodModifier* methodHeader methodBody
+	:	commentDeclaration* interfaceMethodModifier* methodHeader methodBody
 	;
 
 interfaceMethodModifier
@@ -716,7 +711,7 @@ block
 	;
 
 blockStatements
-	:	blockStatement+
+	:	commentDeclaration* blockStatement*
 	;
 
 blockStatement
@@ -1339,3 +1334,8 @@ castExpression
 	|	'(' referenceType additionalBound* ')' unaryExpressionNotPlusMinus
 	|	'(' referenceType additionalBound* ')' lambdaExpression
 	;
+
+commentDeclaration
+    :
+    (COMMENT | LINE_COMMENT)
+    ;

@@ -1,4 +1,4 @@
-// Generated from /Users/haizhi/Documents/workspace/work/plan-antlr/src/main/resources/antlr/java8/Java8Parser.g4 by ANTLR 4.9.1
+// Generated from /Users/haizhi/Documents/workspace/work/plan-antlr/src/main/resources/antlr/java8/Java8Parser.g4 by ANTLR 4.10.1
 package com.simile.antlr.java8;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -1663,4 +1663,11 @@ public class Java8ParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> imple
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitCastExpression(Java8Parser.CastExpressionContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitCommentDeclaration(Java8Parser.CommentDeclarationContext ctx) { return visitChildren(ctx); }
 }

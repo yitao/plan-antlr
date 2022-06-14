@@ -1,4 +1,4 @@
-// Generated from /Users/haizhi/Documents/workspace/work/plan-antlr/src/main/resources/antlr/java8/Java8Parser.g4 by ANTLR 4.9.1
+// Generated from /Users/haizhi/Documents/workspace/work/plan-antlr/src/main/resources/antlr/java8/Java8Parser.g4 by ANTLR 4.10.1
 package com.simile.antlr.java8;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -2843,6 +2843,18 @@ public class Java8ParserBaseListener implements Java8ParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCastExpression(Java8Parser.CastExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCommentDeclaration(Java8Parser.CommentDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCommentDeclaration(Java8Parser.CommentDeclarationContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
