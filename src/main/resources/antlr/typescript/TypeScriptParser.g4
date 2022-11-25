@@ -656,41 +656,41 @@ functionExpressionDeclaration
     ;
 
 singleExpression
-    : functionExpressionDeclaration lineEnd                                         # FunctionExpression
-    | arrowFunctionDeclaration lineEnd                                               # ArrowFunctionExpression   // ECMAScript 6
-    | Class Identifier? classTail lineEnd                                            # ClassExpression
-    | singleExpression '[' expressionSequence ']' lineEnd                            # MemberIndexExpression
-    | singleExpression '.' identifierName nestedTypeGeneric? lineEnd                 # MemberDotExpression
+    : functionExpressionDeclaration                                          # FunctionExpression
+    | arrowFunctionDeclaration                                               # ArrowFunctionExpression   // ECMAScript 6
+    | Class Identifier? classTail                                            # ClassExpression
+    | singleExpression '[' expressionSequence ']'                            # MemberIndexExpression
+    | singleExpression '.' identifierName nestedTypeGeneric?                 # MemberDotExpression
     // Split to try `new Date()` first, then `new Date`.
-    | New singleExpression typeArguments? arguments lineEnd                          # NewExpression
-    | New singleExpression typeArguments? lineEnd                                    # NewExpression
-    | singleExpression arguments lineEnd                                             # ArgumentsExpression
-    | singleExpression {this.notLineTerminator()}? '++' lineEnd                      # PostIncrementExpression
-    | singleExpression {this.notLineTerminator()}? '--' lineEnd                      # PostDecreaseExpression
-    | Delete singleExpression lineEnd                                                # DeleteExpression
-    | Void singleExpression lineEnd                                                  # VoidExpression
-    | Typeof singleExpression lineEnd                                                # TypeofExpression
-    | '++' singleExpression lineEnd                                                  # PreIncrementExpression
-    | '--' singleExpression lineEnd                                                  # PreDecreaseExpression
-    | '+' singleExpression lineEnd                                                   # UnaryPlusExpression
-    | '-' singleExpression lineEnd                                                   # UnaryMinusExpression
-    | '~' singleExpression lineEnd                                                   # BitNotExpression
-    | '!' singleExpression lineEnd                                                   # NotExpression
-    | singleExpression ('*' | '/' | '%') singleExpression lineEnd                    # MultiplicativeExpression
-    | singleExpression ('+' | '-') singleExpression lineEnd                          # AdditiveExpression
-    | singleExpression ('<<' | '>>' | '>>>') singleExpression lineEnd                # BitShiftExpression
-    | singleExpression ('<' | '>' | '<=' | '>=') singleExpression lineEnd            # RelationalExpression
-    | singleExpression Instanceof singleExpression lineEnd                           # InstanceofExpression
-    | singleExpression In singleExpression lineEnd                                   # InExpression
-    | singleExpression ('==' | '!=' | '===' | '!==') singleExpression lineEnd        # EqualityExpression
-    | singleExpression '&' singleExpression lineEnd                                 # BitAndExpression
-    | singleExpression '^' singleExpression lineEnd                                 # BitXOrExpression
-    | singleExpression '|' singleExpression lineEnd                                 # BitOrExpression
-    | singleExpression '&&' singleExpression lineEnd                                # LogicalAndExpression
-    | singleExpression '||' singleExpression lineEnd                                # LogicalOrExpression
-    | singleExpression '?' singleExpression ':' singleExpression lineEnd            # TernaryExpression
-    | singleExpression '=' singleExpression lineEnd                                 # AssignmentExpression
-    | singleExpression assignmentOperator singleExpression lineEnd                  # AssignmentOperatorExpression
+    | New singleExpression typeArguments? arguments                          # NewExpression
+    | New singleExpression typeArguments?                                    # NewExpression
+    | singleExpression arguments                                             # ArgumentsExpression
+    | singleExpression {this.notLineTerminator()}? '++'                      # PostIncrementExpression
+    | singleExpression {this.notLineTerminator()}? '--'                      # PostDecreaseExpression
+    | Delete singleExpression                                                # DeleteExpression
+    | Void singleExpression                                                  # VoidExpression
+    | Typeof singleExpression                                                # TypeofExpression
+    | '++' singleExpression                                                  # PreIncrementExpression
+    | '--' singleExpression                                                  # PreDecreaseExpression
+    | '+' singleExpression                                                   # UnaryPlusExpression
+    | '-' singleExpression                                                   # UnaryMinusExpression
+    | '~' singleExpression                                                   # BitNotExpression
+    | '!' singleExpression                                                   # NotExpression
+    | singleExpression ('*' | '/' | '%') singleExpression                    # MultiplicativeExpression
+    | singleExpression ('+' | '-') singleExpression                          # AdditiveExpression
+    | singleExpression ('<<' | '>>' | '>>>') singleExpression                # BitShiftExpression
+    | singleExpression ('<' | '>' | '<=' | '>=') singleExpression            # RelationalExpression
+    | singleExpression Instanceof singleExpression                           # InstanceofExpression
+    | singleExpression In singleExpression                                   # InExpression
+    | singleExpression ('==' | '!=' | '===' | '!==') singleExpression        # EqualityExpression
+    | singleExpression '&' singleExpression                                  # BitAndExpression
+    | singleExpression '^' singleExpression                                  # BitXOrExpression
+    | singleExpression '|' singleExpression                                  # BitOrExpression
+    | singleExpression '&&' singleExpression                                 # LogicalAndExpression
+    | singleExpression '||' singleExpression                                 # LogicalOrExpression
+    | singleExpression '?' singleExpression ':' singleExpression             # TernaryExpression
+    | singleExpression '=' singleExpression                                  # AssignmentExpression
+    | singleExpression assignmentOperator singleExpression                   # AssignmentOperatorExpression
     | singleExpression templateStringLiteral                                 # TemplateStringExpression  // ECMAScript 6
     | iteratorBlock                                                          # IteratorsExpression // ECMAScript 6
     | generatorBlock                                                         # GeneratorsExpression // ECMAScript 6
@@ -705,6 +705,7 @@ singleExpression
     | '(' expressionSequence ')'                                             # ParenthesizedExpression
     | typeArguments expressionSequence?                                      # GenericTypes
     | singleExpression As asExpression                                       # CastAsExpression
+    | callSignature                                                          # CallExpression
     ;
 
 asExpression
@@ -847,13 +848,6 @@ setter
 eos
     : SemiColon
     | EOF
-    | LineTerminator
     | {this.lineTerminatorAhead()}?
     | {this.closeBrace()}?
-    ;
-
-lineEnd
-    : SemiColon
-    | LineTerminator
-    | EOF
     ;
