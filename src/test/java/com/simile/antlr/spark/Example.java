@@ -56,8 +56,9 @@ public class Example {
         content = "select from t1;";
         content = "select from from t1;";
         content = "select name fromm t1;";
-        content = "select name from;\n select name from t1";
-        content = "select name fromm aa ";
+        content = "select name from t1;\n select key, name from";
+        content = "select `_key`, name from t1;\nselect `_key`, name from ";
+//        content = "select age , name from ";
 //        content = "select name fromm ;";
 //        content = "select name , gg fromm t1;";
 //        System.out.println(content);

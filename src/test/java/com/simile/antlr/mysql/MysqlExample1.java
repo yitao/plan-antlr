@@ -45,6 +45,7 @@ public class MysqlExample1 {
 //                .toUpperCase()
 //                .replaceAll("`","")
                 ;
+        content = "call proc_column_update ('addColumn','work_table','store_id','INT(11) COMMENT \"数据源ID\"');";
 //        System.out.println(content);
         CodePointCharStream input = CharStreams.fromString(content);
         MySqlLexer lexer = new MySqlLexer(input);
@@ -70,6 +71,11 @@ public class MysqlExample1 {
         @Override
         public void enterColumnCreateTable(MySqlParser.ColumnCreateTableContext ctx) {
             super.enterColumnCreateTable(ctx);
+        }
+
+        @Override
+        public void enterCallStatement(MySqlParser.CallStatementContext ctx) {
+            super.enterCallStatement(ctx);
         }
     }
 }
