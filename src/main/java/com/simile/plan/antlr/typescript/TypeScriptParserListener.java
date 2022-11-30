@@ -452,6 +452,16 @@ public interface TypeScriptParserListener extends ParseTreeListener {
 	 */
 	void exitCallSignature(TypeScriptParser.CallSignatureContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link TypeScriptParser#callFunction}.
+	 * @param ctx the parse tree
+	 */
+	void enterCallFunction(TypeScriptParser.CallFunctionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link TypeScriptParser#callFunction}.
+	 * @param ctx the parse tree
+	 */
+	void exitCallFunction(TypeScriptParser.CallFunctionContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link TypeScriptParser#parameterList}.
 	 * @param ctx the parse tree
 	 */

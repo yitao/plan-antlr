@@ -275,6 +275,12 @@ public interface TypeScriptParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCallSignature(TypeScriptParser.CallSignatureContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link TypeScriptParser#callFunction}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCallFunction(TypeScriptParser.CallFunctionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link TypeScriptParser#parameterList}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

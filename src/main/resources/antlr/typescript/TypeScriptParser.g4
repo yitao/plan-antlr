@@ -202,6 +202,10 @@ callSignature
     : typeParameters? '(' parameterList? ')' typeAnnotation?
     ;
 
+callFunction
+    : Identifier '(' parameterList? ')'
+    ;
+
 parameterList
     : restParameter
     | parameter (',' parameter)* (',' restParameter)?
@@ -705,7 +709,7 @@ singleExpression
     | '(' expressionSequence ')'                                             # ParenthesizedExpression
     | typeArguments expressionSequence?                                      # GenericTypes
     | singleExpression As asExpression                                       # CastAsExpression
-    | callSignature                                                          # CallExpression
+    | callFunction                                                           # CallExpression
     ;
 
 asExpression

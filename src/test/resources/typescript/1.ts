@@ -5,17 +5,13 @@ import { getMiddleConfig } from '@/utils/sysConfig'
 import { mapState } from 'vuex'
 
 export default {
-    name: 'SysMain',
-    components: {
-        AppHeader,
-        NewSider,
-    },
-    data() {
-        return {
-            collapsed: getLocalString('menuCollapsed') ? false : true,
-            currentRouterInfo: {},
-            hideHeader: getMiddleConfig().hideHeader
-        }
-    },
+
+    beforeMount() {
+        // 菜单的默认打开 默认选中
+        this.currentRouterInfo = this.$router.currentRoute;
+        this.$router.afterEach((to, from) => {
+            this.currentRouterInfo = to || {};
+        })
+    }
 
 }
