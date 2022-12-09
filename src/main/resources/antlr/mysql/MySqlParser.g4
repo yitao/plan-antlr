@@ -45,7 +45,11 @@ sqlStatements
 sqlStatement
     : ddlStatement | dmlStatement | transactionStatement
     | replicationStatement | preparedStatement
-    | administrationStatement | utilityStatement
+    | administrationStatement | utilityStatement | delimiterStatement
+    ;
+
+delimiterStatement
+    : DELIMITER emptyStatement_*
     ;
 
 emptyStatement_

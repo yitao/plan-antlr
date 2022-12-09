@@ -52,6 +52,18 @@ public class MySqlParserBaseListener implements MySqlParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterDelimiterStatement(MySqlParser.DelimiterStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDelimiterStatement(MySqlParser.DelimiterStatementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterEmptyStatement_(MySqlParser.EmptyStatement_Context ctx) { }
 	/**
 	 * {@inheritDoc}
