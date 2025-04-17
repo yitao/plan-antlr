@@ -242,7 +242,8 @@ unaryAddSubExpression
     ;
 
 atomicExpression
-    : propertyOrLabelExpression (stringExpression | listExpression | nullExpression)*
+    : functionInvocation (stringExpression | listExpression | nullExpression)*
+    | propertyOrLabelExpression (stringExpression | listExpression | nullExpression)*
     ;
 
 listExpression
@@ -335,7 +336,7 @@ subqueryExist
     ;
 
 invocationName
-    : symbol (DOT symbol)*
+    : symbol (DOT name)*
     ;
 
 functionInvocation

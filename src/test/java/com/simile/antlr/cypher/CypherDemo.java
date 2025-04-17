@@ -18,6 +18,14 @@ import org.junit.Test;
 public class CypherDemo {
 
     @Test
+    public void name() {
+        System.out.println('\u0009');
+        System.out.println('\u0010');
+        System.out.println('\u0002');
+        System.out.println('\u0004');
+    }
+
+    @Test
     public void parse() {
         String content = "call {\n" +
                 "match (jg:txn_ou_ads)-[fk:ln_txn_rel]-> (acc1:accounter_ads)-[zjjy1:acc_txnrel]->(acc2:accounter_ads)-[zjjy2:acc_txn_rel]->(acc3:accounter_ads) \n" +
@@ -88,6 +96,27 @@ public class CypherDemo {
 //        content = "MATCH (person1:person)-[tz1:tz]->(company1:company)-[tz2:tz]->(company2:company) WHERE person1.age > 2  WITH person1.object_key as obj_n_obj,count(person1.object_key) as val_n_n_1 WHERE obj_n_obj <> '0' AND val_n_n_1 <> 0 RETURN obj_n_obj,val_n_n_1";
 //        content = "MATCH path = (person1:person)-[tz1:tz]->(company1:company)-[tz2:tz]->(company2:company) WHERE person1.object_key <> '0' RETURN person1 as person1,company1 as company1,company2 as company2,tz1 as tz1,tz2 as tz2,obj_n_obj as obj_n_obj,val_n_n_1 as val_n_n_1,path as path";
 //        System.out.println(content);
+//        content = "MATCH p =(bill:piaoju)-[bc:bill_cust_rel]->(pc:pioaju_cust_ads)-[tx:bill_endrsmt_trans_rel*1..10]->(pc1:pioaju_cust_ads)\n" +
+
+        content = "MATCH p=(bill:piaoju)-[bc:bill_cust_rel*1..10]->(pc:pioaju_cust_ads)-[tx:bill_endrsmt_trans_rel]->(pc1:pioaju_cust_ads) " +
+                "WHERE bill.bill_info = '123456789' " +
+                "UNWIND relationships(p) as rel " +
+                "WITH rel " +
+                "WHERE type(rel)= 'bill_endrsmt_trans_rel' " +
+                "RETURN rel.trans_to_name as name";
+
+//        content = "MATCH p=(bill:piaoju)-[bc:bill_cust_rel*1..10]->(pc:pioaju_cust_ads)-[tx:bill_endrsmt_trans_rel]->(pc1:pioaju_cust_ads) " +
+//                "WHERE bill.bill_info = '123456789' " +
+//                "RETURN rel.trans_to_name as name";
+
+//        content = "MATCH (bill:piaoju)-[bc:bill_type]->(pc:pioaju_cust_ads) return bc";
+        content =
+                "WITH apoc.date.add(apoc.date.currentTimestamp(),'ms',-90,'d') as value \n" +
+                "MATCH (a1:loan_acct_info_ads)-[fkjy:loan_acc_txn_rel]-(acc1:accounter_info_ads) \n" +
+                "-[zjjy1:small_amt_acc|txn_rel]->(acc2:accounter_info_ads) \n" +
+                "where fkiy.txn_dt <= value \n" +
+                "return fkjy.object_key as object_key";
+        System.out.println(content);
         CodePointCharStream input = CharStreams.fromString(content);
         CypherLexer lexer = new CypherLexer(input);
         //转成token流
@@ -108,6 +137,66 @@ public class CypherDemo {
     static class CypherListener extends CypherParserBaseListener {
 
         private CypherParser.ReturnStContext lastReturnCtx;
+
+        @Override
+        public void enterListLit(CypherParser.ListLitContext ctx) {
+            super.enterListLit(ctx);
+        }
+
+        @Override
+        public void enterListComprehension(CypherParser.ListComprehensionContext ctx) {
+            super.enterListComprehension(ctx);
+        }
+
+        @Override
+        public void enterPatternComprehension(CypherParser.PatternComprehensionContext ctx) {
+            super.enterPatternComprehension(ctx);
+        }
+
+        @Override
+        public void enterProjectionItems(CypherParser.ProjectionItemsContext ctx) {
+            super.enterProjectionItems(ctx);
+        }
+
+        @Override
+        public void enterMultiPartQ(CypherParser.MultiPartQContext ctx) {
+            super.enterMultiPartQ(ctx);
+        }
+
+        @Override
+        public void enterCountAll(CypherParser.CountAllContext ctx) {
+            super.enterCountAll(ctx);
+        }
+
+        @Override
+        public void enterStandaloneCall(CypherParser.StandaloneCallContext ctx) {
+            super.enterStandaloneCall(ctx);
+        }
+
+        @Override
+        public void enterRelationDetail(CypherParser.RelationDetailContext ctx) {
+            super.enterRelationDetail(ctx);
+        }
+
+        @Override
+        public void enterMultDivExpression(CypherParser.MultDivExpressionContext ctx) {
+            super.enterMultDivExpression(ctx);
+        }
+
+        @Override
+        public void enterPatternElem(CypherParser.PatternElemContext ctx) {
+            super.enterPatternElem(ctx);
+        }
+
+        @Override
+        public void enterMatchSt(CypherParser.MatchStContext ctx) {
+            super.enterMatchSt(ctx);
+        }
+
+        @Override
+        public void enterRangeLit(CypherParser.RangeLitContext ctx) {
+            super.enterRangeLit(ctx);
+        }
 
         @Override
         public void enterReturnSt(CypherParser.ReturnStContext ctx) {
