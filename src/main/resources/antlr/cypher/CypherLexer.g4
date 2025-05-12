@@ -128,7 +128,7 @@ OF         : 'OF';
 ADD        : 'ADD';
 DROP       : 'DROP';
 
-ID: Letter LetterOrDigit*;
+ID: LetterOrDigit+;
 
 ESC_LITERAL    : '`' .*? '`';
 CHAR_LITERAL   : '\'' (~['\\\r\n] | EscapeSequence)? '\'';
@@ -155,10 +155,14 @@ fragment HexDigit   : [0-9a-f];
 fragment OctalDigit : '0' Digits;
 fragment Digits     : [1-9] ([0-9_]* [0-9])?;
 
-fragment LetterOrDigit: Letter | [0-9];
+LetterOrDigit: Letter | [0-9];
 
 Letter:
     [a-z_]
     | ~[\u0000-\u007F\uD800-\uDBFF] // covers all characters above 0x7F which are not a surrogate
     | [\uD800-\uDBFF] [\uDC00-\uDFFF]
 ; // covers UTF-16 surrogate pairs encodings for U+10000 to U+10FFFF
+
+RANGE_LIT:
+    MULT DIGIT? (RANGE DIGIT?)?
+    ;

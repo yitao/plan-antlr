@@ -242,8 +242,7 @@ unaryAddSubExpression
     ;
 
 atomicExpression
-    : functionInvocation (stringExpression | listExpression | nullExpression)*
-    | propertyOrLabelExpression (stringExpression | listExpression | nullExpression)*
+    : propertyOrLabelExpression (stringExpression | listExpression | nullExpression)*
     ;
 
 listExpression
@@ -395,7 +394,7 @@ literal
     ;
 
 rangeLit
-    : MULT numLit? (RANGE numLit?)?
+    : RANGE_LIT
     ;
 
 boolLit
