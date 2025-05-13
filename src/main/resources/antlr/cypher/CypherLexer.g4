@@ -164,5 +164,7 @@ Letter:
 ; // covers UTF-16 surrogate pairs encodings for U+10000 to U+10FFFF
 
 RANGE_LIT:
-    MULT DIGIT? (RANGE DIGIT?)?
+    MULT DIGIT RANGE DIGIT
+    | MULT RANGE DIGIT
+    | MULT DIGIT RANGE
     ;
